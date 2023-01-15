@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <title>Calender Javascript</title>
+
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/calender.css" />
+</head>
+
+<body>
+
+  <!-- CONTENT -->
+  <main class="main_content" aria-label="content">
+    <div class="container-fluid pt-2 pb-3">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 mt-4">
+          <h4>Day picker</h4>
+          <div class="az_calender" id="calender2"></div>
+        </div>
+        <div class="col-lg-4 col-sm-12 mt-4">
+          <h4>Month Picker</h4>
+          <div class="az_calender" id="calender3"></div>
+        </div>
+        <div class="col-lg-4 col-sm-12 mt-4">
+          <h4>Day picker (min-max)</h4>
+          <div class="az_calender" id="calender1"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- CONTENT END -->
+</body>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/all.min.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/calender.js"></script>
+<script>
+  const myCallBack = (e) => {
+    console.log("return>>>>", e);
+  };
+
+  // Calender
+  const container1 = document.querySelector("#calender1");
+  const container2 = document.querySelector("#calender2");
+  const container3 = document.querySelector("#calender3");
+
+  // const min = moment("10 12 2022", 'MM DD YYYY');
+  // const max = moment("10 25 2022", 'MM DD YYYY');
+  const Calender1 = new CreateCalender(
+    (year = 2022),
+    (month = 10),
+    container1,
+    "singleDatePicker",
+    moment("10 12 2022", 'MM DD YYYY'),
+    moment("10 25 2022", 'MM DD YYYY'),
+    myCallBack
+  );
+
+  const Calender2 = new CreateCalender(
+    (year = 2022),
+    (month = 10),
+    container2,
+    "singleDatePicker",
+    (min = null),
+    (max = null),
+    myCallBack
+  );
+
+  const Calender3 = new CreateCalender(
+    year = 2022,
+    month = 10,
+    container3,
+    "weekPicker",
+    (min = null),
+    (max = null),
+    myCallBack
+  );
+
+</script>
+
+</html>
